@@ -1,14 +1,15 @@
 import hypernova from 'hypernova/server';
-import { renderVue, Vue } from 'hypernova-vue/server';
+import { renderVuex } from 'hypernova-vue/server';
 import express from 'express';
 import path from 'path';
 import LysModule from '../src/components/LysModule.vue';
+import createStore from '../src/store';
 
 hypernova({
   devMode: true,
   getComponent(name) {
     if (name === 'VUE_MODULE') {
-      return renderVue(name, Vue.extend(LysModule));
+      return renderVuex('VUE_MODULE', LysModule, createStore);
     }
     return null;
   },

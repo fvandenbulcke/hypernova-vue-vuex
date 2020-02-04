@@ -3,9 +3,9 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-const store = new Vuex.Store({
+const store = () => new Vuex.Store({
   state: {
-    c: null,
+    data: null,
   },
   mutations: {
     UPDATE_DATA(state, newData) {
